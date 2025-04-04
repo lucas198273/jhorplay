@@ -13,6 +13,10 @@ const movies: Movie[] = [
     name: "Inception",
     description: "Um ladrão que rouba segredos corporativos através do uso de tecnologia de compartilhamento de sonhos...",
     image: "/assets/f1.png"
+  }, {
+    name: "Inception",
+    description: "Um ladrão que rouba segredos corporativos através do uso de tecnologia de compartilhamento de sonhos...",
+    image: "/assets/f1.png"
   },
   {
     name: "Interstellar",
