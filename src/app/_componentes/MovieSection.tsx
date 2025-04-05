@@ -28,26 +28,7 @@ const movies: Movie[] = [
     description: "Uma equipe de exploradores viaja através de um buraco de minhoca no espaço na tentativa de garantir a sobrevivência da humanidade.",
      image: "/assets/f1.png"
   },
-  {
-    name: "Interstellar",
-    description: "Uma equipe de exploradores viaja através de um buraco de minhoca no espaço na tentativa de garantir a sobrevivência da humanidade.",
-     image: "/assets/f1.png"
-  },
-  {
-    name: "Interstellar",
-    description: "Uma equipe de exploradores viaja através de um buraco de minhoca no espaço na tentativa de garantir a sobrevivência da humanidade.",
-     image: "/assets/f1.png"
-  },
-  {
-    name: "Interstellar",
-    description: "Uma equipe de exploradores viaja através de um buraco de minhoca no espaço na tentativa de garantir a sobrevivência da humanidade.",
-     image: "/assets/f1.png"
-  },
-  {
-    name: "Interstellar",
-    description: "Uma equipe de exploradores viaja através de um buraco de minhoca no espaço na tentativa de garantir a sobrevivência da humanidade.",
-     image: "/assets/f1.png"
-  },
+ 
   {
     name: "Interstellar",
     description: "Uma equipe de exploradores viaja através de um buraco de minhoca no espaço na tentativa de garantir a sobrevivência da humanidade.",
@@ -76,7 +57,7 @@ export function MovieSection() {
 
  
   return (
-    <section className="bg-gray-900 py-16">
+    <section className="bg-black py-16">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold mb-8 text-center text-white">
           Catálogo de Filmes
