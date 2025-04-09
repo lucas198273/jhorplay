@@ -66,7 +66,7 @@ export function Navbar() {
         </button>
 
         {/* Logo centralizada */}
-        <div className="flex justify-center flex-1 md:flex-none" data-aos="fade-up" data-aos-delay="200">
+        <div className="flex justify-center flex-1 md:flex-none" data-aos="fade-down" data-aos-delay="200">
           <a href="/logo">
             <img
               src="/assets/Logo-JhorPlay.png.webp"
