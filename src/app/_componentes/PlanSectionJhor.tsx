@@ -1,7 +1,9 @@
-"use client";
+'use client';
+
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Image from "next/image";
 
 const plans = [
   { name: "Mensal", duration: "30 DIAS", price: "29,90", installments: "", trial: true },
@@ -20,9 +22,23 @@ export function PlanSectionJhor() {
   }, []);
 
   return (
-    <section className="bg-black py-16">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center text-white mb-4" data-aos="fade-up">
+    <section className="relative w-full py-16 overflow-hidden text-white">
+      {/* Banner de fundo */}
+      <div className="absolute inset-0">
+        <Image
+          src="/assets/streaming.jpg"
+          alt="Plano de fundo"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+      {/* Overlay escura para legibilidade */}
+      <div className="absolute inset-0 bg-black opacity-70"></div>
+
+      {/* Conteúdo da seção */}
+      <div className="relative z-10 container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center mb-4" data-aos="fade-up">
           Escolha seu plano ideal
         </h2>
         <p className="text-center text-gray-300 mb-8" data-aos="fade-up" data-aos-delay="100">
@@ -34,7 +50,7 @@ export function PlanSectionJhor() {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className="bg-blue-800 p-6 rounded-lg text-white text-center shadow-lg"
+              className="bg-[rgba(0,0,0,0.9)] p-6 rounded-lg text-white text-center shadow-lg"
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
@@ -66,7 +82,7 @@ export function PlanSectionJhor() {
             {plans.map((plan, index) => (
               <div
                 key={index}
-                className="bg-blue-800 p-6 rounded-lg text-white text-center shadow-lg min-w-[80%] sm:min-w-[60%]"
+                className="bg-blue-800/90 p-6 rounded-lg text-white text-center shadow-lg min-w-[80%] sm:min-w-[60%]"
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
               >

@@ -25,16 +25,8 @@ export function PlansSection() {
 
   return (
     <section className="relative py-16 overflow-hidden bg-black">
-      {/* Banner de fundo */}
-      <div className="absolute inset-0">
-        <Image
-          src="/assets/bg2.webp"
-          alt="Banner de fundo"
-          fill
-          className="object-cover opacity-30"
-          priority
-        />
-      </div>
+      {/* Banner de fundo otimizado */}
+     
 
       <div className="relative container mx-auto px-4 text-white">
         <div className="text-center mb-12">

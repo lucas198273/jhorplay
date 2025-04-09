@@ -1,8 +1,6 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 interface Movie {
   name: string;
@@ -15,8 +13,7 @@ const movies: Movie[] = [
     name: "Inception",
     description: "Um ladrão que rouba segredos corporativos através do uso de tecnologia de compartilhamento de sonhos...",
     image: "/assets/f1.png"
-  },
-  {
+  }, {
     name: "Inception",
     description: "Um ladrão que rouba segredos corporativos através do uso de tecnologia de compartilhamento de sonhos...",
     image: "/assets/f1.png"
@@ -24,60 +21,50 @@ const movies: Movie[] = [
   {
     name: "Interstellar",
     description: "Uma equipe de exploradores viaja através de um buraco de minhoca no espaço na tentativa de garantir a sobrevivência da humanidade.",
-    image: "/assets/f1.png"
+     image: "/assets/f1.png"
   },
   {
     name: "Interstellar",
     description: "Uma equipe de exploradores viaja através de um buraco de minhoca no espaço na tentativa de garantir a sobrevivência da humanidade.",
-    image: "/assets/f1.png"
+     image: "/assets/f1.png"
+  },
+ 
+  {
+    name: "Interstellar",
+    description: "Uma equipe de exploradores viaja através de um buraco de minhoca no espaço na tentativa de garantir a sobrevivência da humanidade.",
+     image: "/assets/f1.png"
   },
   {
     name: "Interstellar",
     description: "Uma equipe de exploradores viaja através de um buraco de minhoca no espaço na tentativa de garantir a sobrevivência da humanidade.",
-    image: "/assets/f1.png"
+     image: "/assets/f1.png"
   },
   {
     name: "Interstellar",
     description: "Uma equipe de exploradores viaja através de um buraco de minhoca no espaço na tentativa de garantir a sobrevivência da humanidade.",
-    image: "/assets/f1.png"
+     image: "/assets/f1.png"
   },
   {
     name: "Interstellar",
     description: "Uma equipe de exploradores viaja através de um buraco de minhoca no espaço na tentativa de garantir a sobrevivência da humanidade.",
-    image: "/assets/f1.png"
-  },
-  {
-    name: "Interstellar",
-    description: "Uma equipe de exploradores viaja através de um buraco de minhoca no espaço na tentativa de garantir a sobrevivência da humanidade.",
-    image: "/assets/f1.png"
+     image: "/assets/f1.png"
   }
 ];
 
 export function MovieSection() {
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
 
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      easing: "ease-in-out",
-      once: true
-    });
-  }, []);
 
+ 
   return (
     <section className="bg-black py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-8 text-center text-white" data-aos="fade-up">
+        <h2 className="text-4xl font-bold mb-8 text-center text-white">
           Catálogo de Filmes
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {movies.map((movie, index) => (
-            <div
-              key={index}
-              className="bg-gray-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col"
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
-            >
+            <div key={index} className="bg-gray-800 rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
               <Image
                 src={movie.image}
                 alt={movie.name}
@@ -100,24 +87,15 @@ export function MovieSection() {
       </div>
 
       {selectedMovie && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4" data-aos="fade-in">
-          <div
-            className="bg-gray-800 p-6 rounded-lg w-full max-w-md max-h-[90vh] overflow-y-auto text-white relative"
-            data-aos="zoom-in"
-          >
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4">
+          <div className="bg-gray-800 p-6 rounded-lg w-full max-w-md max-h-[90vh] overflow-y-auto text-white relative">
             <button
               onClick={() => setSelectedMovie(null)}
               className="absolute top-2 right-2 text-white text-xl"
             >
               ✖
             </button>
-            <Image
-              src={selectedMovie.image}
-              alt={selectedMovie.name}
-              width={300}
-              height={400}
-              className="rounded w-full"
-            />
+            <Image src={selectedMovie.image} alt={selectedMovie.name} width={300} height={400} className="rounded w-full" />
             <h3 className="text-2xl mt-4 font-semibold">{selectedMovie.name}</h3>
             <p className="mt-2">{selectedMovie.description}</p>
           </div>
@@ -126,3 +104,4 @@ export function MovieSection() {
     </section>
   );
 }
+
