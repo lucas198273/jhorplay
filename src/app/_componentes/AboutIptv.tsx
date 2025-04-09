@@ -1,5 +1,5 @@
 import Image from "next/image";
-import serverImage from "../../../public/assets/f1.png";
+import serverImage from "../../../public/assets/img (1).webp";
 import networkImage from "../../../public/assets/image.png";
 import { Check, Globe } from "lucide-react";
 
