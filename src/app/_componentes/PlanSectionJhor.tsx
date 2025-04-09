@@ -50,7 +50,7 @@ export function PlanSectionJhor() {
     {plans.map((plan, index) => (
       <div
         key={index}
-        className="bg-[rgba(0,0,0,0.9)] p-6 rounded-lg text-white text-center shadow-lg"
+        className="bg-[rgba(0,0,0,0.2)] p-6 rounded-lg text-white text-center shadow-lg"
         data-aos="fade-up"
         data-aos-delay={index * 100}
       >
