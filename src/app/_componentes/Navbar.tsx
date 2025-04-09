@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,11 +19,20 @@ export function Navbar() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Inicializa AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: "ease-in-out",
+      once: true,
+    });
+  }, []);
+
   return (
-    <header className="relative w-full bg-black">
+    <header className="relative w-full bg-black" >
       <nav className="container mx-auto flex items-center justify-between px-4 py-3 h-16 relative z-10">
         {/* Links à esquerda */}
-        <div className="hidden md:flex space-x-6">
+        <div className="hidden md:flex space-x-6" data-aos="fade-right" data-aos-delay="100">
           <a href="/filmes" className="text-white hover:text-gray-400 transition">
             Blog
           </a>
@@ -36,6 +47,7 @@ export function Navbar() {
           className="md:hidden text-white p-2 transition"
           aria-label="Toggle Menu"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          data-aos="fade-down" data-aos-delay="150"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +66,7 @@ export function Navbar() {
         </button>
 
         {/* Logo centralizada */}
-        <div className="flex justify-center flex-1 md:flex-none">
+        <div className="flex justify-center flex-1 md:flex-none" data-aos="fade-up" data-aos-delay="200">
           <a href="/logo">
             <img
               src="/assets/Logo-JhorPlay.png.webp"
@@ -65,7 +77,7 @@ export function Navbar() {
         </div>
 
         {/* Links à direita */}
-        <div className="hidden md:flex space-x-6">
+        <div className="hidden md:flex space-x-6" data-aos="fade-left" data-aos-delay="100">
           <a href="/suporte" className="text-white hover:text-gray-400 transition">
             Suporte
           </a>
@@ -80,6 +92,7 @@ export function Navbar() {
         <div
           id="mobile-menu"
           className="bg-black bg-opacity-90 p-4 absolute top-16 w-full z-20 text-white shadow-md"
+          data-aos="fade-down"
         >
           <ul className="space-y-4 text-center">
             <li>

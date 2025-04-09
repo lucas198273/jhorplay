@@ -1,6 +1,6 @@
 import Image from "next/image";
 import serverImage from "../../../public/assets/f1.png";
-import networkImage from "../../../public/assets/f1.png";
+import networkImage from "../../../public/assets/image.png";
 import { Check, Globe } from "lucide-react";
 
 export function AboutIPTV() {
@@ -20,12 +20,12 @@ export function AboutIPTV() {
                 priority
               />
             </div>
-            <div className="absolute w-40 h-40 right-4 md:-bottom-8 -bottom-16 rounded-lg border-white border-4">
+            <div className="absolute w-40 h-40 right-4 md:-bottom-8 -bottom-16">
               <Image
                 src={networkImage}
                 alt="Rede IPTV"
                 fill
-                className="object-cover hover:scale-110 transition-all duration-300"
+                className="object-contain hover:scale-110 transition-all duration-300"
                 quality={100}
                 priority
               />

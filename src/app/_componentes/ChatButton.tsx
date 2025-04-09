@@ -1,15 +1,25 @@
 "use client";
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export const ChatModal = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: "ease-in-out",
+      once: false,
+    });
+  }, []);
+
   return (
     <>
-      {/* Botão flutuante */}
+      {/* Botão flutuante com animação AOS e efeito de pulo */}
       <button
         onClick={() => setIsOpen(true)}
+        data-aos="fade-up"
         style={{
           position: "fixed",
           bottom: "20px",
@@ -22,6 +32,7 @@ export const ChatModal = () => {
           border: "none",
           boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
           cursor: "pointer",
+          animation: "bounce 2s infinite",
         }}
       >
         💬
@@ -83,6 +94,16 @@ export const ChatModal = () => {
           </div>
         </div>
       )}
+      <style jsx global>{`
+        @keyframes bounce {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+      `}</style>
     </>
   );
 };
