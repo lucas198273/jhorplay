@@ -9,6 +9,7 @@ import { MovieSection } from "./_componentes/MovieSection";
 import {SubscriptionSection} from "./_componentes/SuscriptionSection"
 import {VantagesSectionJhor} from "./_componentes/VantageJhorSection"
 import { NewsSection } from "./_componentes/NewsSection"
+import { ChatModal } from "./_componentes/ChatButton"
 import React from 'react';
 
 
@@ -25,6 +26,7 @@ export default function Home() {
       <PlanSectionJhor />
       <SubscriptionSection /> 
       <VantagesSectionJhor />
+      <ChatModal />
       {/* <NewsSection /> */}
     
 
