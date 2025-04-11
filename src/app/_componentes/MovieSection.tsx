@@ -17,61 +17,61 @@ const movies: Movie[] = [
     name: "Inception",
     description: "A história de um ladrão que invade os sonhos para roubar segredos.",
     image: "/assets/img (1).webp",
-    cover: "/assets/img (2).webp",
+    cover: "/assets/img (1).webp",
     trailerUrl: "https://www.youtube.com/embed/YoHD9XEInc0",
-  },{
+  },  {
     name: "Inception",
     description: "A história de um ladrão que invade os sonhos para roubar segredos.",
     image: "/assets/img (2).webp",
     cover: "/assets/img (2).webp",
     trailerUrl: "https://www.youtube.com/embed/YoHD9XEInc0",
-  },{
+  },  {
     name: "Inception",
     description: "A história de um ladrão que invade os sonhos para roubar segredos.",
     image: "/assets/img (3).webp",
-    cover: "/assets/img (2).webp",
+    cover: "/assets/img (3).webp",
     trailerUrl: "https://www.youtube.com/embed/YoHD9XEInc0",
-  },{
+  },  {
     name: "Inception",
     description: "A história de um ladrão que invade os sonhos para roubar segredos.",
     image: "/assets/img (4).webp",
-    cover: "/assets/img (2).webp",
+    cover: "/assets/img (4).webp",
     trailerUrl: "https://www.youtube.com/embed/YoHD9XEInc0",
-  },{
+  },  {
     name: "Inception",
     description: "A história de um ladrão que invade os sonhos para roubar segredos.",
     image: "/assets/img (5).webp",
-    cover: "/assets/img (2).webp",
+    cover: "/assets/img (5).webp",
     trailerUrl: "https://www.youtube.com/embed/YoHD9XEInc0",
-  },{
+  },  {
     name: "Inception",
     description: "A história de um ladrão que invade os sonhos para roubar segredos.",
     image: "/assets/img (6).webp",
-    cover: "/assets/img (2).webp",
+    cover: "/assets/img (6).webp",
     trailerUrl: "https://www.youtube.com/embed/YoHD9XEInc0",
-  },{
+  },  {
     name: "Inception",
     description: "A história de um ladrão que invade os sonhos para roubar segredos.",
     image: "/assets/img (7).webp",
-    cover: "/assets/img (2).webp",
+    cover: "/assets/img (7).webp",
     trailerUrl: "https://www.youtube.com/embed/YoHD9XEInc0",
-  },{
+  },  {
     name: "Inception",
     description: "A história de um ladrão que invade os sonhos para roubar segredos.",
     image: "/assets/img (8).webp",
-    cover: "/assets/img (2).webp",
+    cover: "/assets/img (8).webp",
     trailerUrl: "https://www.youtube.com/embed/YoHD9XEInc0",
-  },{
+  },  {
     name: "Inception",
     description: "A história de um ladrão que invade os sonhos para roubar segredos.",
     image: "/assets/img (9).webp",
-    cover: "/assets/img (2).webp",
+    cover: "/assets/img (9).webp",
     trailerUrl: "https://www.youtube.com/embed/YoHD9XEInc0",
-  },{
+  },  {
     name: "Inception",
     description: "A história de um ladrão que invade os sonhos para roubar segredos.",
     image: "/assets/img (10).webp",
-    cover: "/assets/img (2).webp",
+    cover: "/assets/img (10).webp",
     trailerUrl: "https://www.youtube.com/embed/YoHD9XEInc0",
   },
   // ... outros filmes
@@ -126,51 +126,90 @@ export function MovieSection() {
       </div>
 
       {selectedMovie && (
-  <div className="fixed inset-0 z-50 bg-black text-white overflow-auto">
-    <div className="relative">
-      <button
-        onClick={() => setSelectedMovie(null)}
-        className="absolute top-4 right-6 text-white text-3xl hover:text-red-500 z-10"
-      >
-        ✖
-      </button>
+        <div className="fixed inset-0 z-50 bg-black text-white overflow-auto">
+          <div className="relative">
+            <button
+              onClick={() => setSelectedMovie(null)}
+              className="absolute top-4 right-6 text-white text-3xl hover:text-red-500 z-10"
+            >
+              ✖
+            </button>
 
-      {/* Trailer em destaque no topo */}
-      <div className="w-full aspect-video bg-black">
-        <iframe
-          src={selectedMovie.trailerUrl}
-          title="Trailer"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="w-full h-full rounded-b-lg shadow-lg"
-        ></iframe>
-      </div>
+            {/* Trailer no topo - somente após clique */}
+            <div className="w-full aspect-video bg-black flex items-center justify-center">
+              {selectedMovie.trailerUrl ? (
+                <TrailerPlayer trailerUrl={selectedMovie.trailerUrl} />
+              ) : (
+                <p className="text-gray-400">Trailer indisponível</p>
+              )}
+            </div>
 
-      {/* Conteúdo abaixo do trailer */}
-      <div className="p-6 md:p-10">
-        <div className="flex flex-col md:flex-row md:space-x-8">
-          {/* Capa */}
-          <div className="mb-4 md:mb-0 md:w-1/3">
-            <Image
-              src={selectedMovie.cover}
-              alt="Capa"
-              width={300}
-              height={450}
-              className="rounded-lg shadow-md mx-auto md:mx-0"
-            />
-          </div>
+            {/* Conteúdo abaixo */}
+            <div className="p-6 md:p-10">
+              <div className="flex flex-col md:flex-row md:space-x-8">
+                {/* Capa reduzida */}
+                <div className="mb-4 md:mb-0 w-full md:w-1/3 flex justify-center">
+                  <Image
+                    src={selectedMovie.cover}
+                    alt="Capa"
+                    width={210} // 30% menor
+                    height={315}
+                    className="rounded-lg shadow-md"
+                  />
+                </div>
 
-          {/* Descrição */}
-          <div className="md:w-2/3 space-y-4">
-            <h1 className="text-3xl md:text-4xl font-bold">{selectedMovie.name}</h1>
-            <p className="text-lg leading-relaxed">{selectedMovie.description}</p>
+                {/* Texto */}
+                <div className="md:w-2/3 space-y-4">
+                  <h1 className="text-3xl md:text-4xl font-bold">{selectedMovie.name}</h1>
+                  <p className="text-base text-gray-300 italic">
+                    Um filme emocionante que mistura ação, suspense e ficção científica, levando o
+                    espectador a uma jornada entre realidade e sonhos.
+                  </p>
+                  <p className="text-lg leading-relaxed">{selectedMovie.description}</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-)}
-
+      )}
     </section>
+  );
+}
+
+// Componente separado para o trailer
+function TrailerPlayer({ trailerUrl }: { trailerUrl: string }) {
+  const [showIframe, setShowIframe] = useState(false);
+
+  return showIframe ? (
+    <iframe
+      src={trailerUrl}
+      title="Trailer"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+      className="w-full h-full rounded-b-lg shadow-lg"
+    />
+  ) : (
+    <button
+    onClick={() => setShowIframe(true)}
+    className="flex items-center gap-2 bg-red-600 hover:bg-red-700 active:scale-95 focus:ring-4 focus:ring-red-400 transition-all duration-300 px-6 py-3 text-white text-lg rounded shadow"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-5 h-5"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M14.752 11.168l-5.197-3.03A1 1 0 008 9v6a1 1 0 001.555.832l5.197-3.03a1 1 0 000-1.664z"
+      />
+    </svg>
+    Assistir Trailer
+  </button>
+  
+  
   );
 }
