@@ -1,6 +1,6 @@
 export function SubscriptionSection() {
     return (
-      <section className="relative py-16 text-white bg-gradient-to-b from-black to-blue-900">
+      <section className="relative py-16 text-white bg-black">
         <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between">
           {/* Texto */}
           <div className="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0">
@@ -14,7 +14,7 @@ export function SubscriptionSection() {
   
           {/* Imagem */}
           <div className="lg:w-1/2 flex justify-center">
-            <img src="/assets/mulher-sorrindo-com-celular-na-mao-para-instalacao-guiada-iptv-jhorplay.webp" alt="Mulher feliz com celular" className="w-full max-w-md rounded-lg shadow-lg border-4 border-white" />
+            <img src="/assets/baner-thelast.jpeg" alt="baner" className="w-full max-w-md rounded-lg shadow-lg border-4 border-white" />
           </div>
         </div>
       </section>

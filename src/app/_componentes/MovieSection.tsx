@@ -17,61 +17,61 @@ const movies: Movie[] = [
     name: "Inception",
     description: "A história de um ladrão que invade os sonhos para roubar segredos.",
     image: "/assets/img (1).webp",
-    cover: "/assets/cover-inception.webp",
+    cover: "/assets/img (2).webp",
     trailerUrl: "https://www.youtube.com/embed/YoHD9XEInc0",
   },{
     name: "Inception",
     description: "A história de um ladrão que invade os sonhos para roubar segredos.",
     image: "/assets/img (2).webp",
-    cover: "/assets/cover-inception.webp",
+    cover: "/assets/img (2).webp",
     trailerUrl: "https://www.youtube.com/embed/YoHD9XEInc0",
   },{
     name: "Inception",
     description: "A história de um ladrão que invade os sonhos para roubar segredos.",
     image: "/assets/img (3).webp",
-    cover: "/assets/cover-inception.webp",
+    cover: "/assets/img (2).webp",
     trailerUrl: "https://www.youtube.com/embed/YoHD9XEInc0",
   },{
     name: "Inception",
     description: "A história de um ladrão que invade os sonhos para roubar segredos.",
     image: "/assets/img (4).webp",
-    cover: "/assets/cover-inception.webp",
+    cover: "/assets/img (2).webp",
     trailerUrl: "https://www.youtube.com/embed/YoHD9XEInc0",
   },{
     name: "Inception",
     description: "A história de um ladrão que invade os sonhos para roubar segredos.",
     image: "/assets/img (5).webp",
-    cover: "/assets/cover-inception.webp",
+    cover: "/assets/img (2).webp",
     trailerUrl: "https://www.youtube.com/embed/YoHD9XEInc0",
   },{
     name: "Inception",
     description: "A história de um ladrão que invade os sonhos para roubar segredos.",
     image: "/assets/img (6).webp",
-    cover: "/assets/cover-inception.webp",
+    cover: "/assets/img (2).webp",
     trailerUrl: "https://www.youtube.com/embed/YoHD9XEInc0",
   },{
     name: "Inception",
     description: "A história de um ladrão que invade os sonhos para roubar segredos.",
     image: "/assets/img (7).webp",
-    cover: "/assets/cover-inception.webp",
+    cover: "/assets/img (2).webp",
     trailerUrl: "https://www.youtube.com/embed/YoHD9XEInc0",
   },{
     name: "Inception",
     description: "A história de um ladrão que invade os sonhos para roubar segredos.",
     image: "/assets/img (8).webp",
-    cover: "/assets/cover-inception.webp",
+    cover: "/assets/img (2).webp",
     trailerUrl: "https://www.youtube.com/embed/YoHD9XEInc0",
   },{
     name: "Inception",
     description: "A história de um ladrão que invade os sonhos para roubar segredos.",
     image: "/assets/img (9).webp",
-    cover: "/assets/cover-inception.webp",
+    cover: "/assets/img (2).webp",
     trailerUrl: "https://www.youtube.com/embed/YoHD9XEInc0",
   },{
     name: "Inception",
     description: "A história de um ladrão que invade os sonhos para roubar segredos.",
     image: "/assets/img (10).webp",
-    cover: "/assets/cover-inception.webp",
+    cover: "/assets/img (2).webp",
     trailerUrl: "https://www.youtube.com/embed/YoHD9XEInc0",
   },
   // ... outros filmes
@@ -126,60 +126,51 @@ export function MovieSection() {
       </div>
 
       {selectedMovie && (
-        <div className="fixed inset-0 z-50 bg-black text-white overflow-auto">
-          <div className="relative">
-            <button
-              onClick={() => setSelectedMovie(null)}
-              className="absolute top-4 right-6 text-white text-3xl hover:text-red-500 z-10"
-            >
-              ✖
-            </button>
+  <div className="fixed inset-0 z-50 bg-black text-white overflow-auto">
+    <div className="relative">
+      <button
+        onClick={() => setSelectedMovie(null)}
+        className="absolute top-4 right-6 text-white text-3xl hover:text-red-500 z-10"
+      >
+        ✖
+      </button>
 
-            {/* Banner */}
-            <div className="w-full h-96 sm:h-[500px] relative">
-              <Image
-                src={selectedMovie.image}
-                alt={selectedMovie.name}
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70" />
-            </div>
+      {/* Trailer em destaque no topo */}
+      <div className="w-full aspect-video bg-black">
+        <iframe
+          src={selectedMovie.trailerUrl}
+          title="Trailer"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="w-full h-full rounded-b-lg shadow-lg"
+        ></iframe>
+      </div>
 
-            {/* Conteúdo */}
-            <div className="p-6 md:p-10">
-              <div className="flex flex-col md:flex-row md:space-x-8">
-                {/* Capa */}
-                <div className="mb-4 md:mb-0 md:w-1/3">
-                  <Image
-                    src={selectedMovie.cover}
-                    alt="Capa"
-                    width={300}
-                    height={450}
-                    className="rounded-lg shadow-md mx-auto md:mx-0"
-                  />
-                </div>
+      {/* Conteúdo abaixo do trailer */}
+      <div className="p-6 md:p-10">
+        <div className="flex flex-col md:flex-row md:space-x-8">
+          {/* Capa */}
+          <div className="mb-4 md:mb-0 md:w-1/3">
+            <Image
+              src={selectedMovie.cover}
+              alt="Capa"
+              width={300}
+              height={450}
+              className="rounded-lg shadow-md mx-auto md:mx-0"
+            />
+          </div>
 
-                {/* Descrição e Trailer */}
-                <div className="md:w-2/3 space-y-4">
-                  <h1 className="text-3xl md:text-4xl font-bold">{selectedMovie.name}</h1>
-                  <p className="text-lg leading-relaxed">{selectedMovie.description}</p>
-
-                  <div className="aspect-video w-full mt-4">
-                    <iframe
-                      src={selectedMovie.trailerUrl}
-                      title="Trailer"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="w-full h-full rounded-lg shadow-lg"
-                    ></iframe>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/* Descrição */}
+          <div className="md:w-2/3 space-y-4">
+            <h1 className="text-3xl md:text-4xl font-bold">{selectedMovie.name}</h1>
+            <p className="text-lg leading-relaxed">{selectedMovie.description}</p>
           </div>
         </div>
-      )}
+      </div>
+    </div>
+  </div>
+)}
+
     </section>
   );
 }
